@@ -47,6 +47,18 @@ export const Grid: React.FC<{
           onClose={() => {
             setModal(null);
           }}
+          onLeft={() => {
+            const index = files.findIndex((file) => file.url === modal);
+            if (index > 0) {
+              setModal(files[index - 1].url);
+            }
+          }}
+          onRight={() => {
+            const index = files.findIndex((file) => file.url === modal);
+            if (index < files.length - 1) {
+              setModal(files[index + 1].url);
+            }
+          }}
         >
           <Image src={modal} width={250} height={250} className="w-full" alt={modal} />
         </Modal>
