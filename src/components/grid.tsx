@@ -37,7 +37,15 @@ export const Grid: React.FC<{
                 {key}
               </div>
             )}
-            <Image src={url} key={key} alt={key} width={250} height={250} className="h-[250px] max-w-full rounded-lg" />
+            <Image
+              src={url}
+              key={key}
+              alt={key}
+              width={250}
+              height={250}
+              quality={50}
+              className="h-[250px] max-w-full rounded-lg"
+            />
           </div>
         ))}
       </div>
@@ -62,7 +70,7 @@ export const Grid: React.FC<{
           leftDisabled={files.findIndex((file) => file.url === modal) === 0}
           rightDisabled={files.findIndex((file) => file.url === modal) === files.length - 1}
         >
-          <Image src={modal} width={250} height={250} className="w-full" alt={modal} />
+          <Image src={modal} width={250} height={250} className="w-full" quality={100} alt={modal} />
         </Modal>
       )}
     </main>
