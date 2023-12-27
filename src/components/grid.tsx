@@ -12,17 +12,6 @@ export const Grid: React.FC<{
 }> = ({ files }) => {
   const [showAlt, setShowAlt] = useState<string | null>(null);
   const [modal, setModal] = useState<string | null>(null);
-  const chunkedFiles = files.reduce((acc, file, index) => {
-    const chunkIndex = Math.floor(index / 4);
-
-    if (!acc[chunkIndex]) {
-      acc[chunkIndex] = [];
-    }
-
-    acc[chunkIndex].push(file);
-
-    return acc;
-  }, [] as (typeof files)[]);
   return (
     <main className="flex items-center justify-center w-fit m-auto p-4">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4">
