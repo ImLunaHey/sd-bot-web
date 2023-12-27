@@ -27,7 +27,7 @@ export const Modal: React.FC<{
       onClick={handleClose}
     >
       <div
-        className="relative z-50 w-full max-w-3xl p-4 bg-[#181818] rounded-lg"
+        className="relative z-50 w-full max-w-3xl p-4 bg-[#181818] rounded-lg gap-2 grid grid-flow-cols"
         onClick={(e) => {
           e.stopPropagation();
         }}
