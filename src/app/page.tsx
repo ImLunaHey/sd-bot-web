@@ -8,7 +8,6 @@ const getFiles = async () => {
   });
 
   const uploadedFiles = files.filter((file) => file.status === 'Uploaded');
-
   return await uploadThing.getFileUrls(uploadedFiles.map((file) => file.key));
 };
 
