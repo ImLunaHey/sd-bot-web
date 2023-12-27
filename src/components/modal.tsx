@@ -23,18 +23,21 @@ export const Modal: React.FC<{
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center w-full h-full bg-black bg-opacity-50"
+      className="fixed inset-0 z-50 flex items-center justify-center w-full h-full bg-black bg-opacity-80"
       onClick={handleClose}
     >
       <div
-        className="relative z-50 w-full max-w-3xl p-4 bg-white rounded-lg"
+        className="relative z-50 w-full max-w-3xl p-4 bg-[#181818] rounded-lg"
         onClick={(e) => {
           e.stopPropagation();
         }}
       >
         <div className="flex items-center justify-between">
-          <h2 className="text-2xl font-bold text-[#d7d7d7]">{title}</h2>
-          <button className="font-bold p-2 text-white bg-black rounded-lg" onClick={handleClose}>
+          <span className="text-sm text-[#d7d7d7]">{title}</span>
+          <button
+            className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-[#272729] h-9 w-9"
+            onClick={handleClose}
+          >
             <CloseIcon />
           </button>
         </div>

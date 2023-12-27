@@ -34,11 +34,9 @@ export const Grid: React.FC<{
               setModal(url);
             }}
           >
-            {/* Add ALT badge that shows on click */}
             <button
               className="absolute z-10 p-1 text-[10px] font-bold text-white bg-black bg-opacity-50 rounded-md cursor-pointer bottom-2 left-2 hover:cursor-help"
               onClick={(e) => {
-                // Show ALT as a hovering div like twitter
                 setShowAlt((prev) => (prev === key ? null : key));
                 e.stopPropagation();
               }}
