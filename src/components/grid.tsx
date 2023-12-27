@@ -59,6 +59,8 @@ export const Grid: React.FC<{
               setModal(files[index + 1].url);
             }
           }}
+          leftDisabled={files.findIndex((file) => file.url === modal) === 0}
+          rightDisabled={files.findIndex((file) => file.url === modal) === files.length - 1}
         >
           <Image src={modal} width={250} height={250} className="w-full" alt={modal} />
         </Modal>

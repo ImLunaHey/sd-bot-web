@@ -10,7 +10,9 @@ export const Modal: React.FC<{
   onClose: () => void;
   onLeft?: () => void;
   onRight?: () => void;
-}> = ({ title, children, onClose, onLeft, onRight }) => {
+  leftDisabled?: boolean;
+  rightDisabled?: boolean;
+}> = ({ title, children, onClose, onLeft, onRight, leftDisabled, rightDisabled }) => {
   const handleClose = () => {
     onClose();
     document.body.style.overflow = 'auto';
@@ -41,20 +43,22 @@ export const Modal: React.FC<{
         }}
       >
         {/* Left button */}
-        <button className="bg-[#272729] absolute top-1/2 left-2 transform -translate-y-1/2 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-[#3e3e3e] h-9 w-9">
-          <svg
-            className="w-5 h-5 text-[#d7d7d7]"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            onClick={(e) => {
-              onLeft?.();
-              e.stopPropagation();
-            }}
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
-        </button>
+        {!leftDisabled && (
+          <button className="bg-[#272729] absolute top-1/2 left-2 transform -translate-y-1/2 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-[#3e3e3e] h-9 w-9">
+            <svg
+              className="w-5 h-5 text-[#d7d7d7]"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              onClick={(e) => {
+                onLeft?.();
+                e.stopPropagation();
+              }}
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+        )}
         <div className="flex items-center justify-between">
           <span className="text-sm text-[#d7d7d7]">{title}</span>
           <button
@@ -65,20 +69,22 @@ export const Modal: React.FC<{
           </button>
         </div>
         {/* Right button */}
-        <button className="bg-[#272729] absolute top-1/2 right-2 transform -translate-y-1/2 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-[#3e3e3e] h-9 w-9">
-          <svg
-            className="w-5 h-5 text-[#d7d7d7]"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            onClick={(e) => {
-              onRight?.();
-              e.stopPropagation();
-            }}
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-          </svg>
-        </button>
+        {!rightDisabled && (
+          <button className="bg-[#272729] absolute top-1/2 right-2 transform -translate-y-1/2 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-[#3e3e3e] h-9 w-9">
+            <svg
+              className="w-5 h-5 text-[#d7d7d7]"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              onClick={(e) => {
+                onRight?.();
+                e.stopPropagation();
+              }}
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        )}
         <div className="flex items-center justify-center w-full h-full">{children}</div>
       </div>
     </div>
