@@ -38,8 +38,6 @@ const shimKeyboardEvent = (event: { key: string }) => {
   }
 };
 
-export default shimKeyboardEvent;
-
 export const useKeypress = (keys: string | string[], handler: (event: KeyboardEvent) => void) => {
   const eventListenerRef = useRef<KeyboardEventHandler>();
 
