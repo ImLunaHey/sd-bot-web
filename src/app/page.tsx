@@ -3,7 +3,7 @@ import { Grid } from '@/components/grid';
 
 const getFiles = async () => {
   const files = await uploadThing.listFiles({
-    limit: 50,
+    limit: 1_000,
     offset: 0,
   });
 
